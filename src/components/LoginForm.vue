@@ -35,14 +35,11 @@
                 </div>
 
             </div>
-            <!-- Texte légal -->
             <div class="legal-text">
                 En continuant, vous acceptez notre
                 <a href="#" class="legal-link">Politique de confidentialité</a> ainsi que notre utilisation des
                 <a href="#" class="legal-link">Cookies</a>.
             </div>
-
-            <!-- Bouton connexion -->
             <button type="submit" class="btn-login" :disabled="isLoading">
                 <span v-if="!isLoading">Connexion</span>
                 <span v-else class="loader-oscillations">
@@ -68,7 +65,7 @@ export default {
         };
     },
     setup() {
-        const router = useRouter(); // 🔥 Hook pour utiliser le router
+        const router = useRouter();
         return { router };
     },
     methods: {
@@ -90,16 +87,30 @@ export default {
             }
 
             try {
-                // Simuler appel API login
-                await new Promise(resolve => setTimeout(resolve, 1000)); // ⚡ juste pour tester
+                const response = await fetch("https://dummyjson.com/posts", {
+                    method: "POST",
+                    headers: { "Content-Type": "application/json" },
+                    body: JSON.stringify({
+                        username: this.email,
+                        password: this.password
+                    })
+                });
 
-                // Si connexion réussie, rediriger
-                this.router.push({ name: 'Certificate' }); // 🔥 Redirection vers CertificatePage
+                if (!response.ok) {
+                    const errData = await response.json();
+                    this.error = errData.message || "Erreur lors de la connexion.";
+                } else {
+                    const data = await response.json();
+                    console.log("Connexion réussie :", data);
+                }
             } catch (err) {
-                this.error = "Connexion impossible. Vérifiez vos identifiants.";
+                this.error = "Connexion impossible. Vérifiez vos identifiants et réessayez.";
             } finally {
-                this.isLoading = false;
+                this.isLoading = false; setTimeout(() => {
+                    this.router.push({ name: 'Certificate' });
+                }, 1000);
             }
+
         },
 
         togglePassword() {
@@ -109,9 +120,7 @@ export default {
 };
 </script>
 
-
 <style scoped>
-/* Wrapper centré */
 .login-wrapper {
     display: flex;
     justify-content: center;
@@ -121,7 +130,6 @@ export default {
     background: #f7f8fa;
 }
 
-/* Carte login */
 .login-card {
     width: 100%;
     max-width: 420px;
@@ -134,7 +142,6 @@ export default {
     align-items: stretch;
 }
 
-/* Header */
 .login-header h2 {
     font-size: 1.8rem;
     margin-bottom: 0.5rem;
@@ -166,7 +173,6 @@ export default {
     text-decoration: underline;
 }
 
-/* Form groups */
 .form-group {
     margin-bottom: 1rem;
     width: 100%;
@@ -187,12 +193,10 @@ export default {
     font-size: 1rem;
     transition: border 0.2s;
     box-sizing: border-box;
-    /* padding inclus dans la largeur */
 }
 
 .password-wrapper input {
     padding-right: 2.5rem;
-    /* espace pour le bouton œil */
 }
 
 .form-group input:focus {
@@ -200,14 +204,10 @@ export default {
     border-color: #1d72b8;
     box-shadow: 0 0 0 2px rgba(29, 114, 184, 0.2);
 }
-
-/* Étoile rouge proche du mot */
 .required {
     color: #c0392b;
     margin-left: 0.2rem;
 }
-
-/* Password wrapper pour l’œil */
 .password-wrapper {
     position: relative;
     width: 100%;
@@ -223,8 +223,6 @@ export default {
     cursor: pointer;
     font-size: 1.2rem;
 }
-
-/* Texte légal */
 .legal-text {
     font-size: 0.8rem;
     color: #666;
@@ -242,7 +240,6 @@ export default {
     text-decoration: underline;
 }
 
-/* Bouton */
 .btn-login {
     display: inline-block;
     padding: 0.5rem 1.2rem;
@@ -257,14 +254,11 @@ export default {
     transition: background-color 0.2s;
     text-align: center;
     align-self: flex-start;
-    /* aligné à gauche */
 }
 
 .btn-login:hover {
     background-color: #218838;
 }
-
-/* Message d’erreur */
 .error {
     background: #fde2e2;
     color: #c0392b;
@@ -274,8 +268,6 @@ export default {
     margin-bottom: 1rem;
     text-align: center;
 }
-
-/* Responsive mobile */
 @media (max-width: 480px) {
     .login-card {
         padding: 1.5rem;
@@ -289,24 +281,19 @@ export default {
         font-size: 0.95rem;
     }
 }
-
-/* Loader à oscillations */
 .loader-oscillations {
     display: flex;
     justify-content: center;
     align-items: flex-end;
     gap: 4px;
     height: 24px;
-    /* augmenter la hauteur pour que ça se voie */
 }
 
 .loader-oscillations span {
     display: block;
     width: 4px;
     height: 16px;
-    /* hauteur initiale */
     background: white;
-    /* ou #fff si ton bouton est sombre, sinon change la couleur */
     border-radius: 2px;
     animation: bounce 0.6s infinite ease-in-out;
 }
@@ -334,8 +321,6 @@ export default {
         transform: scaleY(1);
     }
 }
-
-/* Bouton désactivé */
 .btn-login:disabled {
     opacity: 0.7;
     cursor: not-allowed;
