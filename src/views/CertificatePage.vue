@@ -609,4 +609,54 @@ export default {
     color: #6b7280;
     font-weight: 400;
 }
+/* Conteneur principal des cartes */
+.modules-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* 4 colonnes sur grand écran */
+    gap: 20px;
+    padding: 24px 0;
+}
+
+/* La carte elle-même */
+.module-card {
+    background: #ffffff;
+    border: 1px solid #f0f2f5; /* Bordure très légère comme sur la capture */
+    border-radius: 20px;       /* Arrondi de la carte */
+    padding: 16px;             /* Espace entre le bord de la carte et l'image */
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.2s ease;
+}
+
+/* L'image à l'intérieur de la carte */
+.module-image {
+    width: 100%;
+    height: 160px;             /* Hauteur fixe pour l'uniformité */
+    object-fit: cover;         /* Pour ne pas déformer l'image */
+    border-radius: 14px;       /* L'ARRONDI SPÉCIFIQUE DE L'IMAGE */
+    margin-bottom: 16px;       /* Espace sous l'image */
+}
+
+/* Titre et textes */
+.module-label {
+    font-size: 12px;
+    color: #888;
+    margin-bottom: 8px;
+    font-weight: 500;
+}
+
+.module-title {
+    font-size: 16px;
+    font-weight: 700;
+    color: #1a1a1a;
+    margin-bottom: 10px;
+    line-height: 1.4;
+}
+
+.module-desc {
+    font-size: 13px;
+    color: #666;
+    line-height: 1.5;
+    margin-bottom: 20px;
+}
 </style>
