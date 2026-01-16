@@ -1,6 +1,6 @@
 import { createRouter, createWebHistory } from 'vue-router';
 import LoginForm from "@/components/LoginForm.vue";
-import CertificatePage from '../views/CertificatePage.vue';
+import CertificatePage from "@/views/CertificatePage.vue";
 
 const routes = [
   {
