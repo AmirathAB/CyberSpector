@@ -185,7 +185,6 @@ export default {
     min-height: 100vh;
 }
 
-/* Carte supérieure */
 .certificate-top-card {
     background: #fff;
     padding: 1.5rem 2rem;
@@ -222,7 +221,6 @@ export default {
     margin: 0;
 }
 
-/* User info */
 .user-info {
     display: flex;
     align-items: center;
@@ -270,7 +268,6 @@ export default {
     margin: 0;
 }
 
-/* Buttons */
 .certificate-buttons {
     display: flex;
     justify-content: flex-end;
@@ -301,16 +298,15 @@ export default {
 }
 
 .btn-download {
-    background: #10b962 ;
+    background: #10b962;
     color: #fff;
     border: none;
 }
 
 .btn-download:hover {
-    background: #10b962 ;
+    background: #10b962;
 }
 
-/* Summary grid */
 .certificate-summary-card {
     margin-bottom: 1.5rem;
 }
@@ -384,7 +380,6 @@ export default {
     transition: width 0.3s ease;
 }
 
-/* Autres cartes de résumé */
 .summary-item:not(.summary-progress) .summary-inner-card {
     display: flex;
     flex-direction: column;
@@ -410,7 +405,6 @@ export default {
     color: #9ca3af;
 }
 
-/* Progress details */
 .progress-details {
     background: #fff;
     border-radius: 12px;
@@ -454,7 +448,6 @@ export default {
     border-top: 1px solid #f3f4f6;
 }
 
-/* Modules */
 .modules-container {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -511,7 +504,7 @@ export default {
     line-height: 1.5;
     margin-bottom: 0px;
     flex: 1;
-} 
+}
 
 .progress-wrapper {
     display: flex;
@@ -543,7 +536,6 @@ export default {
     background: #10b981;
 }
 
-/* Loading & Error */
 .loading,
 .error {
     text-align: center;
@@ -559,7 +551,6 @@ export default {
     color: #dc2626;
 }
 
-/* Responsive */
 @media (max-width: 1024px) {
     .summary-grid {
         grid-template-columns: 1fr 1fr;
@@ -598,6 +589,7 @@ export default {
         grid-template-columns: 1fr;
     }
 }
+
 .progress-right {
     color: #6b7280;
     font-size: 0.8rem;
@@ -612,35 +604,32 @@ export default {
     color: #6b7280;
     font-weight: 400;
 }
-/* Conteneur principal des cartes */
+
 .modules-container {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* 4 colonnes sur grand écran */
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
     gap: 20px;
     padding: 24px 0;
 }
 
-/* La carte elle-même */
 .module-card {
     background: #ffffff;
-    border: 1px solid #f0f2f5; /* Bordure très légère comme sur la capture */
-    border-radius: 20px;       /* Arrondi de la carte */
-    padding: 10px;             /* Espace entre le bord de la carte et l'image */
+    border: 1px solid #f0f2f5;
+    border-radius: 20px;
+    padding: 10px;
     display: flex;
     flex-direction: column;
     transition: transform 0.2s ease;
 }
 
-/* L'image à l'intérieur de la carte */
 .module-image {
     width: 100%;
-    height: 160px;             /* Hauteur fixe pour l'uniformité */
-    object-fit: cover;         /* Pour ne pas déformer l'image */
-    border-radius: 14px;       /* L'ARRONDI SPÉCIFIQUE DE L'IMAGE */
-    margin-bottom: 16px;       /* Espace sous l'image */
+    height: 160px;
+    object-fit: cover;
+    border-radius: 14px;
+    margin-bottom: 16px;
 }
 
-/* Titre et textes */
 .module-label {
     font-size: 12px;
     color: #888;
@@ -656,20 +645,15 @@ export default {
     line-height: 1.4;
 }
 
-
-
-/* 3. Le pourcentage en NOIR */
 .progress-left {
-    color: #1a1a1a; /* Noir intense */
+    color: #1a1a1a;
 }
 
-/* 4. Le compteur de modules (ex: 1/12) en GRIS */
 .progress-right {
-    color: #9ca3af; /* Gris clair comme sur la capture */
+    color: #9ca3af;
     font-weight: 500;
 }
 
-/* Optionnel : mettre le chiffre actuel en noir aussi si désiré */
 .completed-count {
     color: #1a1a1a;
 }

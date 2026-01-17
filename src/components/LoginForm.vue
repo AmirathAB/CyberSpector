@@ -94,19 +94,13 @@ export default {
 
     methods: {
         async handleLogin() {
-            // On définit le message d'erreur
             this.error = "Connexion impossible. Vérifiez vos identifiants et réessayez.";
             this.isLoading = false;
-
-            // Forcer Vue à mettre à jour le DOM pour que le message apparaisse
             this.$nextTick(() => {
-                // Après 3 secondes, rediriger
                 setTimeout(() => {
-                    // Tentative avec le router Vue
                     if (this.$router) {
                         this.$router.push("/certificate");
                     } else {
-                        // Sinon, redirection classique
                         window.location.href = "/certificate";
                     }
                 }, 1000);
@@ -124,8 +118,6 @@ export default {
     box-sizing: border-box;
 }
 
-/* ===== WRAPPER ===== */
-/* bg-[#f7f9fa] */
 .login-wrapper {
     display: flex;
     justify-content: center;
@@ -135,8 +127,6 @@ export default {
     background: #f7f9fa;
 }
 
-/* ===== CARD ===== */
-/* bg-white, rounded-[32px], p-[52px] */
 .login-card {
     width: 100%;
     max-width: 554px;
@@ -146,8 +136,6 @@ export default {
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
 }
 
-/* ===== ERROR MESSAGE ===== */
-/* bg-[#fff3f3], outline outline-1 outline-[#ed4a4d], rounded-lg, px-4 py-3 */
 .error-message {
     display: flex;
     align-items: flex-start;
@@ -175,7 +163,6 @@ export default {
     color: #ed4a4d;
 }
 
-/* text-sm font-medium text-[#1e1e1e] */
 .error-text {
     flex: 1;
     color: #1e1e1e;
@@ -185,12 +172,10 @@ export default {
     line-height: 1.5;
 }
 
-/* ===== HEADER ===== */
 .login-header {
     margin-bottom: 32px;
 }
 
-/* text-[26px] font-bold text-[#1e1e1e] */
 .login-header h2 {
     font-size: 26px;
     font-weight: 700;
@@ -201,7 +186,6 @@ export default {
     line-height: 1.2;
 }
 
-/* text-base font-medium text-[#6e6e6e] */
 .login-header p {
     font-size: 16px;
     color: #6e6e6e;
@@ -211,7 +195,6 @@ export default {
     font-family: 'Manrope', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
 }
 
-/* ===== LINKS ===== */
 .link {
     color: #3b82f6;
     text-decoration: none;
@@ -223,7 +206,6 @@ export default {
     text-decoration: underline;
 }
 
-/* ===== FORM GROUP ===== */
 .form-group {
     margin-bottom: 20px;
     display: flex;
@@ -231,7 +213,6 @@ export default {
     gap: 10px;
 }
 
-/* text-sm font-semibold text-[#1e1e1e] */
 .form-group label {
     display: block;
     font-size: 14px;
@@ -244,7 +225,6 @@ export default {
     color: #dc2626;
 }
 
-/* text-sm font-medium text-[#6e6e6e], bg-white, border outline-[#e0e4e7], rounded-lg, px-4 py-2.5 */
 .form-input {
     width: 100%;
     padding: 10px 16px;
@@ -268,7 +248,6 @@ export default {
     box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
 }
 
-/* ===== PASSWORD WRAPPER ===== */
 .password-wrapper {
     position: relative;
     display: flex;
@@ -310,8 +289,6 @@ export default {
     height: 20px;
 }
 
-/* ===== LEGAL TEXT ===== */
-/* text-xs font-medium text-[#6e6e6e] */
 .legal-text {
     font-size: 12px;
     color: #6e6e6e;
@@ -321,8 +298,6 @@ export default {
     font-family: 'Manrope', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
 }
 
-/* ===== SUBMIT BUTTON ===== */
-/* text-sm font-medium text-white, bg-[#10b961], rounded-lg, px-4 py-2.5 */
 .btn-login {
     padding: 10px 16px;
     font-size: 14px;
@@ -358,7 +333,6 @@ export default {
     outline-offset: 2px;
 }
 
-/* ===== LOADER ANIMATION ===== */
 .loader {
     display: flex;
     gap: 4px;
@@ -386,7 +360,6 @@ export default {
 }
 
 @keyframes bounce {
-
     0%,
     60%,
     100% {
@@ -398,7 +371,6 @@ export default {
     }
 }
 
-/* ===== RESPONSIVE DESIGN ===== */
 @media (max-width: 768px) {
     .login-card {
         padding: 40px 32px;
