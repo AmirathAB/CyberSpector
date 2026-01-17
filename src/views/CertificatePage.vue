@@ -469,6 +469,8 @@ export default {
     overflow: hidden;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
     transition: transform 0.2s, box-shadow 0.2s;
+
+    min-height: 420px;
 }
 
 .module-card:hover {
@@ -507,9 +509,9 @@ export default {
     font-size: 0.85rem;
     color: #6b7280;
     line-height: 1.5;
-    margin-bottom: 1rem;
+    margin-bottom: 0px;
     flex: 1;
-}
+} 
 
 .progress-wrapper {
     display: flex;
@@ -517,6 +519,7 @@ export default {
     align-items: center;
     margin-bottom: 0.5rem;
     font-size: 0.8rem;
+    margin-top: -10px;
 }
 
 .progress-left {
@@ -529,9 +532,9 @@ export default {
 }
 
 .progress-bar.small {
-    height: 4px;
+    height: 10px;
     background: #e5e7eb;
-    border-radius: 2px;
+    border-radius: 10px;
     overflow: hidden;
 }
 
@@ -622,7 +625,7 @@ export default {
     background: #ffffff;
     border: 1px solid #f0f2f5; /* Bordure très légère comme sur la capture */
     border-radius: 20px;       /* Arrondi de la carte */
-    padding: 16px;             /* Espace entre le bord de la carte et l'image */
+    padding: 10px;             /* Espace entre le bord de la carte et l'image */
     display: flex;
     flex-direction: column;
     transition: transform 0.2s ease;
@@ -653,10 +656,21 @@ export default {
     line-height: 1.4;
 }
 
-.module-desc {
-    font-size: 13px;
-    color: #666;
-    line-height: 1.5;
-    margin-bottom: 20px;
+
+
+/* 3. Le pourcentage en NOIR */
+.progress-left {
+    color: #1a1a1a; /* Noir intense */
+}
+
+/* 4. Le compteur de modules (ex: 1/12) en GRIS */
+.progress-right {
+    color: #9ca3af; /* Gris clair comme sur la capture */
+    font-weight: 500;
+}
+
+/* Optionnel : mettre le chiffre actuel en noir aussi si désiré */
+.completed-count {
+    color: #1a1a1a;
 }
 </style>
